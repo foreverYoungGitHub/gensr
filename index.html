@@ -1,0 +1,306 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>The Generative Turn in Search and Recommendation</title>
+    <meta
+      name="description"
+      content="ICML Workshop on The Generative Turn in Search and Recommendation: Foundations, Scale, and Frontiers. July 6, 4:00-7:00 PM Seoul Time."
+    >
+    <meta name="theme-color" content="#ffffff">
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="The Generative Turn in Search and Recommendation">
+    <meta
+      property="og:description"
+      content="ICML Workshop on generative foundation models for search and recommendation. July 6, 4:00-7:00 PM Seoul Time."
+    >
+    <meta property="og:image" content="assets/hero-signal-field.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Crimson+Pro:wght@400;500;600;700&family=IBM+Plex+Sans:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    >
+    <link rel="stylesheet" href="assets/styles.css">
+  </head>
+  <body>
+    <a class="skip-link" href="#main">Skip to content</a>
+
+    <header class="site-header" data-header>
+      <a class="brand" href="#top" aria-label="Workshop home">GenSR Workshop</a>
+      <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="site-nav" data-nav-toggle>
+        Menu
+      </button>
+      <nav class="site-nav" id="site-nav" aria-label="Primary navigation" data-nav>
+        <a href="#about">About</a>
+        <a href="#speakers">Invited Speakers</a>
+        <a href="#organizers">Organizers</a>
+        <a href="#schedule">Schedule</a>
+      </nav>
+    </header>
+
+    <main id="main">
+      <section class="hero" id="top" aria-labelledby="hero-title">
+        <div class="container hero-inner">
+          <div class="hero-copy reveal">
+            <p class="eyebrow">ICML Workshop</p>
+            <h1 id="hero-title">The Generative Turn in Search and Recommendation</h1>
+            <p class="subtitle">Foundations, Scale, and Frontiers</p>
+            <p class="event-meta">
+              <!-- EDIT: Add room/location when finalized. -->
+              <span>ICML Workshop</span>
+              <span>July 6, 4:00-7:00 PM Seoul Time (KST)</span>
+            </p>
+            <div class="hero-actions">
+              <a class="button primary" href="#schedule">View Schedule</a>
+              <a class="button secondary" href="mailto:yang.liu@ieee.org,antoine.atallah@shopify.com,patrick.haluptzok@shopify.com">Contact Organizers</a>
+            </div>
+          </div>
+
+          <figure class="hero-visual reveal" style="--delay: 120ms">
+            <div
+              class="discovery-animation"
+              data-discovery-animation
+              aria-label="Animated diagram showing user history and search intent flowing into a generative model that produces candidates for shopping, music, video, news, and ads."
+            >
+              <div class="flow-column flow-input">
+                <p class="flow-label">User History + Query</p>
+                <div class="history-chip">searched <strong>hiking shoes</strong></div>
+                <div class="history-chip">watched <strong>camera review</strong></div>
+                <div class="history-chip">liked <strong>synth playlist</strong></div>
+                <div class="history-chip">cart <strong>rain jacket</strong></div>
+                <div class="query-chip">query: lightweight trail gear</div>
+              </div>
+
+              <div class="model-core">
+                <p>Generative Model</p>
+                <div class="latent-ring">
+                  <span></span>
+                  <span></span>
+                  <span></span>
+                </div>
+                <div class="token-stream">
+                  <span>u<sub>t-3</sub></span>
+                  <span>u<sub>t-2</sub></span>
+                  <span>q<sub>t</sub></span>
+                  <span>item<sub>t+1</sub></span>
+                </div>
+              </div>
+
+              <div class="flow-column flow-output">
+                <p class="flow-label">Generated Candidates</p>
+                <button class="candidate-card is-active" type="button" data-candidate="shop" aria-pressed="true">
+                  <span>Shop Item</span>
+                  <strong>trail runner</strong>
+                </button>
+                <button class="candidate-card" type="button" data-candidate="music" aria-pressed="false">
+                  <span>Music</span>
+                  <strong>focus mix</strong>
+                </button>
+                <button class="candidate-card" type="button" data-candidate="video" aria-pressed="false">
+                  <span>Video</span>
+                  <strong>gear review</strong>
+                </button>
+                <button class="candidate-card" type="button" data-candidate="news" aria-pressed="false">
+                  <span>News</span>
+                  <strong>outdoor guide</strong>
+                </button>
+                <button class="candidate-card" type="button" data-candidate="ad" aria-pressed="false">
+                  <span>Ad</span>
+                  <strong>seasonal offer</strong>
+                </button>
+              </div>
+
+              <svg class="flow-lines" viewBox="0 0 100 100" preserveAspectRatio="none" role="presentation" focusable="false">
+                <path class="flow-path input-path" d="M28 31 C36 31 40 43 45 47"></path>
+                <path class="flow-path input-path input-path-two" d="M28 67 C36 67 40 56 45 53"></path>
+                <path class="flow-path candidate-path path-shop is-active" data-path="shop" d="M62 47 C67 34 70 24 74 22"></path>
+                <path class="flow-path candidate-path path-music" data-path="music" d="M62 49 C68 41 70 37 74 37"></path>
+                <path class="flow-path candidate-path path-video" data-path="video" d="M62 50 C68 50 70 50 74 50"></path>
+                <path class="flow-path candidate-path path-news" data-path="news" d="M62 51 C68 59 70 63 74 64"></path>
+                <path class="flow-path candidate-path path-ad" data-path="ad" d="M62 53 C67 68 70 76 74 78"></path>
+              </svg>
+            </div>
+            <figcaption class="sr-only">
+              User history and a search query condition a generative model, which directly produces
+              ranked candidates across shopping, music, video, news, and advertising.
+            </figcaption>
+          </figure>
+        </div>
+      </section>
+
+      <section class="section about" id="about" aria-labelledby="about-title">
+        <div class="container two-column">
+          <div class="section-title reveal">
+            <p class="eyebrow">About</p>
+            <h2 id="about-title">A workshop on the next foundation model shift in discovery systems.</h2>
+          </div>
+          <div class="prose reveal">
+            <p>
+              Search and recommendation systems power web search, short-video feeds, music, news, advertising,
+              and e-commerce. They are now undergoing their most significant paradigm shift in a decade:
+              multi-stage discriminative pipelines are giving way to unified generative foundation models that
+              directly produce items, queries, slates, and entire user trajectories.
+            </p>
+            <p>
+              This transition promises to reduce cascaded error propagation, improve hardware utilization, and
+              unlock optimization objectives beyond next-click prediction. Realizing the paradigm in production,
+              however, requires serving billions of users, reasoning over catalogs approaching billions of
+              candidate items, and responding within strict latency budgets.
+            </p>
+            <p>
+              The workshop brings together researchers and industrial practitioners through invited talks and a
+              moderated discussion around convergence, scaling laws, trillion-item efficiency, continuous
+              learning, cold start, fairness, and multi-objective trade-offs.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <section class="section speakers" id="speakers" aria-labelledby="speakers-title">
+        <div class="container">
+          <div class="section-heading reveal">
+            <p class="eyebrow">Invited Speakers</p>
+            <h2 id="speakers-title">Invited speakers.</h2>
+          </div>
+          <div class="speaker-grid">
+            <article class="person-card reveal">
+              <a href="https://scholar.google.com/citations?user=vXbEJfQAAAAJ&hl=en" aria-label="Ruiming Tang profile">
+                <img class="portrait photo" src="assets/ruiming-tang.jpg" alt="Ruiming Tang">
+              </a>
+              <h3><a href="https://scholar.google.com/citations?user=vXbEJfQAAAAJ&hl=en">Ruiming Tang</a></h3>
+              <p>Kuaishou</p>
+            </article>
+            <article class="person-card reveal">
+              <a href="https://scholar.google.com/citations?user=AVOFGX0AAAAJ&hl=en" aria-label="Luke Simon profile">
+                <img class="portrait photo" src="assets/luke-simon.jpg" alt="Luke Simon">
+              </a>
+              <h3><a href="https://scholar.google.com/citations?user=AVOFGX0AAAAJ&hl=en">Luke Simon</a></h3>
+              <p>Meta</p>
+            </article>
+            <article class="person-card reveal">
+              <img class="portrait photo" src="assets/shuying-sun.jpg" alt="Shuying Sun">
+              <h3>Shuying Sun</h3>
+              <p>Shopify</p>
+            </article>
+            <article class="person-card reveal">
+              <a href="https://scholar.google.com/citations?user=9PXCsLkAAAAJ&hl=en" aria-label="Fedor Borisyuk profile">
+                <img class="portrait photo" src="assets/fedor-borisyuk.jpg" alt="Fedor Borisyuk">
+              </a>
+              <h3><a href="https://scholar.google.com/citations?user=9PXCsLkAAAAJ&hl=en">Fedor Borisyuk</a></h3>
+              <p>LinkedIn</p>
+            </article>
+            <article class="person-card reveal">
+              <div class="portrait" aria-hidden="true">TBD</div>
+              <h3>TBD</h3>
+              <p>To be announced</p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section class="section organizers" id="organizers" aria-labelledby="organizers-title">
+        <div class="container">
+          <div class="section-heading reveal">
+            <p class="eyebrow">Organizers</p>
+            <h2 id="organizers-title">Organizing team.</h2>
+          </div>
+          <div class="organizer-grid">
+            <article class="person-card organizer-card reveal">
+              <a href="https://scholar.google.com/citations?user=v-RBgdMAAAAJ&hl=en" aria-label="Yang Liu profile">
+                <img class="portrait photo" src="assets/yang-liu.jpg" alt="Yang Liu">
+              </a>
+              <h3><a href="https://scholar.google.com/citations?user=v-RBgdMAAAAJ&hl=en">Yang Liu</a></h3>
+              <p>Senior Staff MLE, Shopify</p>
+            </article>
+            <article class="person-card organizer-card reveal">
+              <a href="https://www.linkedin.com/in/aatallah" aria-label="Antoine Atallah profile">
+                <img class="portrait photo" src="assets/antoine-atallah.jpg" alt="Antoine Atallah">
+              </a>
+              <h3><a href="https://www.linkedin.com/in/aatallah">Antoine Atallah</a></h3>
+              <p>Director of ML Engineering, Shopify</p>
+            </article>
+            <article class="person-card organizer-card reveal">
+              <a href="https://scholar.google.com/citations?user=ZYGuk98AAAAJ&hl=en" aria-label="Patrick Haluptzok profile">
+                <img class="portrait photo" src="assets/patrick-haluptzok.jpg" alt="Patrick Haluptzok">
+              </a>
+              <h3><a href="https://scholar.google.com/citations?user=ZYGuk98AAAAJ&hl=en">Patrick Haluptzok</a></h3>
+              <p>Senior Staff MLE, Shopify</p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section class="section schedule" id="schedule" aria-labelledby="schedule-title">
+        <div class="container">
+          <div class="section-heading reveal">
+            <p class="eyebrow">Schedule</p>
+            <h2 id="schedule-title">July 6, 4:00-7:00 PM Seoul Time.</h2>
+          </div>
+          <div class="schedule-table reveal">
+            <!-- EDIT: Replace TBD topics and speaker names when the program is finalized. -->
+            <article class="schedule-row">
+              <time>4:00-4:10 PM</time>
+              <div>
+                <h3>Opening Remarks</h3>
+                <p>Workshop framing and overview of generative discovery systems.</p>
+              </div>
+            </article>
+            <article class="schedule-row">
+              <time>4:10-4:40 PM</time>
+              <div>
+                <h3>Invited Talk I</h3>
+                <p>Topic TBD.</p>
+              </div>
+            </article>
+            <article class="schedule-row">
+              <time>4:40-5:10 PM</time>
+              <div>
+                <h3>Invited Talk II</h3>
+                <p>Topic TBD.</p>
+              </div>
+            </article>
+            <article class="schedule-row">
+              <time>5:10-5:40 PM</time>
+              <div>
+                <h3>Invited Talk III</h3>
+                <p>Topic TBD.</p>
+              </div>
+            </article>
+            <article class="schedule-row">
+              <time>5:40-6:10 PM</time>
+              <div>
+                <h3>Invited Talk IV</h3>
+                <p>Topic TBD.</p>
+              </div>
+            </article>
+            <article class="schedule-row">
+              <time>6:10-6:40 PM</time>
+              <div>
+                <h3>Invited Talk V</h3>
+                <p>Topic TBD.</p>
+              </div>
+            </article>
+            <article class="schedule-row">
+              <time>6:40-7:00 PM</time>
+              <div>
+                <h3>Panel and Closing Discussion</h3>
+                <p>Open problems and next steps for the community.</p>
+              </div>
+            </article>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <div class="container footer-inner">
+        <p>© <span data-year></span> The Generative Turn in Search and Recommendation Workshop.</p>
+        <a href="#top">Back to top</a>
+      </div>
+    </footer>
+
+    <script src="assets/script.js"></script>
+  </body>
+</html>
