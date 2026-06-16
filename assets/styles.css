@@ -589,20 +589,8 @@ h3 {
 
 .speaker-grid {
   display: grid;
-  grid-template-columns: repeat(6, minmax(0, 1fr));
+  grid-template-columns: repeat(4, minmax(0, 1fr));
   gap: 22px;
-}
-
-.speaker-grid .person-card {
-  grid-column: span 2;
-}
-
-.speaker-grid .person-card:nth-last-child(2) {
-  grid-column: 2 / span 2;
-}
-
-.speaker-grid .person-card:last-child {
-  grid-column: 4 / span 2;
 }
 
 .person-card {
@@ -781,11 +769,6 @@ h3 {
     grid-template-columns: 1fr;
   }
 
-  .speaker-grid .person-card,
-  .speaker-grid .person-card:nth-last-child(2),
-  .speaker-grid .person-card:last-child {
-    grid-column: auto;
-  }
 }
 
 @media (max-width: 680px) {
